@@ -16,8 +16,9 @@ include('db.php');
 // Uploads files
  // if save button on the form is clicked
     // name of the uploaded file
-    // $eid= $data->id;
-
+    $eid= $_POST['employeeid'];
+    $ename=$_POST['ename'];
+    $mobile=$_POST['mobile'];
     $filename = $_FILES['myfile']['name'];
    
     // destination of the file on the server
@@ -32,13 +33,12 @@ include('db.php');
     
     if (!in_array($extension, ['zip', 'pdf', 'docx'])) {
         echo "You file extension must be .zip, .pdf or .docx";
-    } elseif ($_FILES['myfile']['size'] > 100000000) { // file shouldn't be larger than 1Megabyte
+    } elseif ($_FILES['myfile']['size'] > 1000000) { // file shouldn't be larger than 1Megabyte
         echo "File too large!";
     } else {
         // move the uploaded (temporary) file to the specified destination
         if (move_uploaded_file($file, $destination)) {
-            $sql = "INSERT INTO file (name, size, downloads) VALUES ('$filename', $size, 0)";
-
+            $sql = "INSERT INTO file (name, size, downloads,employeeid,ename,mobile) VALUES ('$filename', $size, 0,'$eid','$ename','$mobile')";
             if (mysqli_query($conn, $sql)) {
                 echo "File uploaded successfully";
             }
