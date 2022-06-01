@@ -1,7 +1,7 @@
 <?php
 header('Access-Control-Allow-Origin:*');
 header('Content-type:application/json');
-header('Access-Control-Allow-Methods:DELETE');
+header('Access-Control-Allow-Methods:POST');
 header('Access-Control-Allow-Headers: Content-Type,Access-Control-Allow-Headers,Authorization,X-Request-With');
 
 
@@ -10,22 +10,13 @@ include('db.php');
 
 
 
-if($data->id)
-{
     
 
-$query="DELETE FROM registration  WHERE id=".$data->id;
-$run=mysqli_query($conn,$query);
-if($run)
-{
-    echo json_encode(['status' => 'success','msg'=>'product Deleted']);
-}
-
-else {
-    echo json_encode(['status' => 'failed','msg'=>'sorry!']);
+$query="DELETE FROM users  WHERE id='$_GET[id]' ";
+$result=mysqli_query($conn,$query);
+if($result){
+    $response[] = array('status'=>1);
+  }else{
+    $response[] = array('status'=>0);
   }
-
-}
-else{
-    echo json_encode(['status' => 'failed','msg'=>'no user id!']);
-}
+  echo json_encode($response);

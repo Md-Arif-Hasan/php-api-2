@@ -1,53 +1,39 @@
 <?php
 
+
+
+
 header('Access-Control-Allow-Origin:*');
-
 header('Content-type:application/json');
-
 header('Access-Control-Allow-Methods:POST');
-
 header('Access-Control-Allow-Headers: Content-Type,Access-Control-Allow-Headers,Authorization,X-Request-With');
 
- 
 
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+
+// Create connection
+$conn=new mysqli($servername, $username, $password,'test');
 $data=json_decode(file_get_contents("php://input"));
+// $n = trim( $_POST['id'] );
+ $employeeid=mysqli_real_escape_string($conn,$data->id);
+ $ename=mysqli_real_escape_string($conn,$data->name);
+ $mobile=mysqli_real_escape_string($conn,$data->mobile);
+ $money=mysqli_real_escape_string($conn,$data->amount);
 
-include('db.php');
-
-$employeeid=$data->id;
-
-$ename=$data->name;
-
-$mobile=$data->mobile;
-
-$amount=$data->amount;
-
-
-
-//  path of the log file where errors need to be logged
-// $log_file = "./my-errors.log";
-  
-// logging error message to given log file
-// error_log($employeeid."\n", 3, $log_file);
-
-if($employeeid){
-    $sql="INSERT INTO `loan`(`employeeid`,`ename`,`mobile`,`amount`) VALUES (' ".$employeeid." ',' ".$ename." ',' ".$mobile." ',' ".$amount." ') ";
+ if($employeeid){
+    $sql="INSERT INTO loan(employeeid,ename,mobile,amount) VALUES ('$employeeid','$ename','$mobile','$money') ";
+ }
+ 
+if(isset($employeeid) && isset($ename) && isset($mobile) && isset($money)){
+if (mysqli_query($conn, $sql)) {
+    echo "Loan set successfully";
+    echo $data->id;
 }
+ else {
+echo "Failed to upload file.";
+}}
 
-   
-
-
-
-$result=$conn->query($sql);
-
-if($result){
-
-    $response[] = array('status'=>1);
-
-}else{
-
-    $response[] = array('status'=>0);
-
-}
-
-echo json_encode($response);
+// '$data->id','$data->name','$data->mobile','$data->amount'
