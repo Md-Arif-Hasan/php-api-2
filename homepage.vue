@@ -1,13 +1,13 @@
-
 <template>
-  <div class="bg col-sm-12 page">
+  <div class="bg logo col-sm-12">
+    <div></div>
     <!-- Vertical navbar -->
-
-    <div class="vertical-nav" id="sidebar">
+    <div class="vertical-nav bg-white" id="sidebar">
       <div class="py-4 px-3 mb-4 bg-light">
         <div class="media d-flex align-items-center">
           <div class="media-body" id="logo">
-            <h4 class="m-0 text-dark font-bold">SULTAN TEA GARDEN</h4>
+            <h4 class="m-0">Jason Doe</h4>
+            <p class="font-weight-light text-muted mb-0">Web developer</p>
           </div>
           <!-- <div>
 
@@ -16,134 +16,62 @@
         </div>
       </div>
 
-      <p
-        class="text-light font-weight-bold text-uppercase px-3 small pb-4 mb-0"
-      >
+      <p class="text-gray font-weight-bold text-uppercase px-3 small pb-4 mb-0">
         Main
       </p>
 
-      <ul class="nav flex-column mb-0">
+      <ul class="nav flex-column bg-white mb-0">
         <li class="nav-item">
-          <a href="/" class="nav-link text-light font-italic">
-            <i class="fa fa-th-large teal-color mr-3 text-primary fa-fw"></i>
-            Register
+          <a href="#" class="nav-link text-dark font-italic bg-light">
+            <i class="fa fa-th-large mr-3 text-primary fa-fw"></i>
+            Home
           </a>
         </li>
-
         <li class="nav-item">
-          <a href="/login" class="nav-link text-light font-italic">
+          <a href="#" class="nav-link text-dark font-italic">
             <i class="fa fa-address-card mr-3 text-primary fa-fw"></i>
-            Log in
+            About
           </a>
         </li>
-
         <li class="nav-item">
-          <a href="/add" class="nav-link text-light font-italic">
-            <i class="fa fa-photo-video mr-3 text-primary fa-fw"></i>
-            Add User
-          </a>
-        </li>
-
-        <li class="nav-item">
-          <a href="/emplist" class="nav-link text-light font-italic">
+          <a href="#" class="nav-link text-dark font-italic">
             <i class="fa fa-cubes mr-3 text-primary fa-fw"></i>
-            Employee List
+            Services
           </a>
         </li>
-
         <li class="nav-item">
-          <a href="/flist" class="nav-link text-light font-italic">
-            <i class="fa fa-cubes mr-3 text-primary fa-fw"></i>
-            Farmer List
-          </a>
-        </li>
-
-        <li class="nav-item">
-          <a href="/attend" class="nav-link text-light font-italic">
-            <i class="fa fa-address-card mr-3 text-primary fa-fw"></i>
-            Attendance
-          </a>
-        </li>
-
-        <li class="nav-item">
-          <a href="/payslip" class="nav-link text-light font-italic">
-            <i class="fa fa-address-card mr-3 text-primary fa-fw"></i>
-            Payslip
-          </a>
-        </li>
-
-        <li class="nav-item">
-          <a href="/files" class="nav-link text-light font-italic">
-            <i class="fa fa-address-card mr-3 text-primary fa-fw"></i>
-            File Upload
-          </a>
-        </li>
-
-        <li class="nav-item">
-          <a href="/download" class="nav-link text-light font-italic">
-            <i class="fa fa-address-card mr-3 text-primary fa-fw"></i>
-            File Download
-          </a>
-        </li>
-
-            <li class="nav-item">
-          <a href="/salarytrans" class="nav-link text-light font-italic">
-            <i class="fa fa-address-card mr-3 text-primary fa-fw"></i>
-            Salary Transaction
-          </a>
-        </li>
-
-        <li class="nav-item">
-          <a href="/wagestrans" class="nav-link text-light font-italic">
-            <i class="fa fa-address-card mr-3 text-primary fa-fw"></i>
-            Wages Transaction
-          </a>
-        </li>
-
-        
-
-        <li class="nav-item">
-          <a href="/win" class="nav-link text-light font-italic">
-            <i class="fa fa-address-card mr-3 text-primary fa-fw"></i>
-            Warehouse Insert
-          </a>
-        </li>
-
-        <li class="nav-item">
-          <a href="/wreport" class="nav-link text-light font-italic">
-            <i class="fa fa-address-card mr-3 text-primary fa-fw"></i>
-            Inventory Report
+          <a href="#" class="nav-link text-dark font-italic">
+            <i class="fa fa-picture-o mr-3 text-primary fa-fw"></i>
+            Gallery
           </a>
         </li>
       </ul>
 
-      <p
-        class="text-light font-weight-bold text-uppercase px-3 small py-4 mb-0"
-      >
+      <p class="text-gray font-weight-bold text-uppercase px-3 small py-4 mb-0">
         Charts
       </p>
 
-      <ul class="nav flex-column mb-0">
+      <ul class="nav flex-column bg-white mb-0">
         <li class="nav-item">
-          <a href="#" class="nav-link text-light font-italic">
+          <a href="#" class="nav-link text-dark font-italic">
             <i class="fa fa-area-chart mr-3 text-primary fa-fw"></i>
             Area charts
           </a>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link text-light font-italic">
+          <a href="#" class="nav-link text-dark font-italic">
             <i class="fa fa-bar-chart mr-3 text-primary fa-fw"></i>
             Bar charts
           </a>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link text-light font-italic">
+          <a href="#" class="nav-link text-dark font-italic">
             <i class="fa fa-pie-chart mr-3 text-primary fa-fw"></i>
             Pie charts
           </a>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link text-light font-italic">
+          <a href="#" class="nav-link text-dark font-italic">
             <i class="fa fa-line-chart mr-3 text-primary fa-fw"></i>
             Line charts
           </a>
@@ -176,7 +104,7 @@
           >
         </p> -->
 
-        <!-- <div class="separator" ></div>
+        <div class="separator" style="padding-top: 230px"></div>
 
         <div class="row">
           <div class="col-sm-4" style="background-color: darkcyan">
@@ -186,7 +114,7 @@
           <div class="col-sm-4" style="background-color: slategray">
             .col-sm-4
           </div>
-        </div> -->
+        </div>
 
         <div style="padding-top: 50px">
           <div class="col-sm-12 content">
@@ -271,17 +199,6 @@
     </div>
     <!-- End demo content -->
 
-    <div class="separator"></div>
-
-    <div class="row" id="chobi">
-      <div class="column">
-        <img src="../assets/leaf-7.jpg" alt="Forest" style="width: 100%" />
-      </div>
-      <div class="column">
-        <img src="../assets/cha-1.jpg" alt="Mountains" style="width: 100%" />
-      </div>
-    </div>
-
     <footer class="footer">
       <div class="container">
         <div class="row">
@@ -305,7 +222,7 @@
             </ul>
           </div>
           <div class="footer-col">
-            <h4> online shop</h4>
+            <h4>online shop</h4>
             <ul>
               <li><a href="#">watch</a></li>
               <li><a href="#">bag</a></li>
@@ -355,7 +272,7 @@
 }
 
 .logo {
-  background-image: url("../assets/bg-2.jpg");
+  background-image: url("../assets/logo-3.png");
 }
 
 .vertical-nav {
@@ -368,7 +285,6 @@
   border-style: groove;
   box-shadow: 3px 3px 10px rgba(95, 92, 92, 0.1);
   transition: all 0.4s;
-  background-color: #161414;
 }
 
 .page-content {
@@ -440,12 +356,11 @@ body {
 
 img {
   display: block;
-  margin-left: 30px;
+  margin-left: auto;
   margin-right: auto;
 
   height: 500px;
   width: 1400px;
-  padding-left: 50px;
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
@@ -465,9 +380,8 @@ body {
 ul {
   list-style: none;
 }
-
 .footer {
-  background-color: #161414;
+  background-color: #24262b;
   padding: 70px 0;
 }
 .footer-col {
@@ -537,26 +451,5 @@ ul {
   .footer-col {
     width: 100%;
   }
-}
-
-.page {
-  background-color: #accc9e;
-}
-
-#chobi {
-  box-sizing: border-box;
-}
-
-.column {
-  float: left;
-  width: 50%;
-  padding: 2px;
-}
-
-/* Clearfix (clear floats) */
-.row::after {
-  content: "";
-  clear: both;
-  display: table;
 }
 </style>

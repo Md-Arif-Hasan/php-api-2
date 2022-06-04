@@ -1,9 +1,4 @@
-
 <?php
-
-
-
-
 header('Access-Control-Allow-Origin:*');
 header('Content-type:application/json');
 header('Access-Control-Allow-Methods:POST');
@@ -12,21 +7,16 @@ header('Access-Control-Allow-Headers: Content-Type,Access-Control-Allow-Headers,
 
 $data=json_decode(file_get_contents("php://input"));
 include('db.php');
-// $employeeid=$_POST['id'];
-// $ename=$_POST['name'];
-// $mobile=$_POST['mobile'];
-$employeeid=$data->id;
-$basic=$data->basic;
-$rent=$data->rent;
-$medical=$data->medical;
-$tax=$data->tax;
-if($employeeid)
-{
-$sql="INSERT INTO salary(employeeid,basic,rent,medical,tax) VALUES ('$employeeid','$basic','$rent','$medical','$tax') ";}
-$result=$conn->query($sql);
+
+
+
+    
+
+$query="DELETE FROM loan  WHERE employeeid='$_GET[id]' ";
+$result=mysqli_query($conn,$query);
 if($result){
     $response[] = array('status'=>1);
-}else{
+  }else{
     $response[] = array('status'=>0);
-}
-echo json_encode($response);
+  }
+  echo json_encode($response);
