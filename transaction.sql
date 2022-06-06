@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 31, 2022 at 07:48 PM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 7.4.28
+-- Generation Time: Jun 05, 2022 at 02:40 PM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -40,8 +40,15 @@ CREATE TABLE `transaction` (
 --
 
 INSERT INTO `transaction` (`tid`, `date`, `employeeid`, `amount`, `type`) VALUES
+('205362', '2022-06-01', '22345', '69900', 'salary'),
+('213868', '2022-06-01', '22345', '69900', 'salary'),
+('222906', '2022-06-01', '22345', '39900', 'salary'),
 ('236824', '2022-05-31', '22345', '200', 'salary'),
-('266151', '2022-05-31', '22345', '200', 'salary');
+('242720', '2022-06-01', '22345', '600', 'wages'),
+('264637', '2022-06-01', '22345', '69900', 'salary'),
+('265460', '2022-06-01', '22345', '69900', 'salary'),
+('266151', '2022-05-31', '22345', '200', 'salary'),
+('278441', '2022-06-01', '22345', '39900', 'salary');
 
 --
 -- Indexes for dumped tables

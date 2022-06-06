@@ -15,16 +15,18 @@ include('db.php');
 // $employeeid=$_POST['id'];
 // $ename=$_POST['name'];
 // $mobile=$_POST['mobile'];
- $url = "http://66.45.237.70/api.php";
-$month1=date("F", strtotime(date("Y") ."-". '$data->month' ."-01"));
+$url = "http://66.45.237.70/api.php";
+$month=$data->month;
+$month1=date("F", strtotime(date("Y") ."-". $month ."-01"));
 $employeeid='$data->employeeid';
-$month='$data->month';
+
+// echo $month;
 $sql="SELECT COUNT(*) as 'att' FROM attendance where employeeid='$data->employeeid' AND status='1' AND MONTH(date)='$data->month' ";
 $result=$conn->query($sql);
 $row = mysqli_fetch_assoc($result);
 $wage=$row['att']*300;
 
-echo $wage;
+// echo $wage;
 
 if($data->employeeid){
 $sql8="INSERT INTO transaction(tid,date,employeeid,amount,type) VALUES ('$data->tid',CURRENT_TIME(),'$data->employeeid','$wage','wages') ";
@@ -32,7 +34,7 @@ $sql8="INSERT INTO transaction(tid,date,employeeid,amount,type) VALUES ('$data->
     $response[] = array('status'=>1);
 
     $text="Your wages of $month1 has been sent successfully!";
-    echo $text;
+     echo $text;
     $sql9="SELECT mobile FROM users WHERE id='$data->employeeid'";
     $result1=$conn->query($sql9);
     
@@ -56,7 +58,7 @@ $sql8="INSERT INTO transaction(tid,date,employeeid,amount,type) VALUES ('$data->
             $smsresult = curl_exec($ch);
             $p = explode("|",$smsresult);
             $sendstatus = $p[0];
-            echo $sendstatus;
+            // echo $sendstatus;
     }}}
  else {
     $response[] = array('status'=>0);

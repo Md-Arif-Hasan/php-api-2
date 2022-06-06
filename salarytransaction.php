@@ -2,6 +2,7 @@
 
 
 
+
 header('Access-Control-Allow-Origin:*');
 header('Content-type:application/json');
 header('Access-Control-Allow-Methods:POST');
@@ -9,7 +10,7 @@ header('Access-Control-Allow-Headers: Content-Type,Access-Control-Allow-Headers,
 
 
 $data=json_decode(file_get_contents("php://input"));
- $url = "http://66.45.237.70/api.php";
+$url = "http://66.45.237.70/api.php";
 include('db.php');
 include('attendancetransaction.php');
 // $employeeid=$_POST['id'];
@@ -17,15 +18,16 @@ include('attendancetransaction.php');
 // $mobile=$_POST['mobile'];
 
 // $employeeid='$data->id';
+$month1=$data->month;
 
-$month=date("F", strtotime(date("Y") ."-". '$data->month' ."-01"));
-if('$data->tid'){
+$month=date("F", strtotime(date("Y") ."-". $month1 ."-01"));
+if($data->employeeid){
 $sql8="INSERT INTO transaction(tid,date,employeeid,amount,type) VALUES ('$data->tid',CURRENT_TIME(),'$data->employeeid','$net','salary') ";
 }if (mysqli_query($conn, $sql8)) {
     $response[] = array('status'=>1);
 
     $text="Your salary of $month has been sent successfully!";
-    echo $text;
+    // echo $text;
     $sql9="SELECT mobile FROM users WHERE id='$data->employeeid'";
     $result1=$conn->query($sql9);
     
@@ -49,7 +51,7 @@ $sql8="INSERT INTO transaction(tid,date,employeeid,amount,type) VALUES ('$data->
             $smsresult = curl_exec($ch);
             $p = explode("|",$smsresult);
             $sendstatus = $p[0];
-            echo $sendstatus;
+            // echo $sendstatus;
     }}}
  else {
     $response[] = array('status'=>0);

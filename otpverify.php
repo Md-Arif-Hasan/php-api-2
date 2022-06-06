@@ -19,18 +19,19 @@ $result=$conn->query($sql);
             // output data of each row
             while($row = $result -> fetch_assoc()) {
 
-              echo $data->token;
+              // echo $data->token;
     
 
               $sql1= "INSERT INTO users (id, name, mobile)
                 SELECT id, name, mobile FROM registration WHERE id='$data->id'";
                 $result1=$conn->query($sql1);
                 if ($result1) {
-                    echo json_encode(['status' => 'success','msg'=>'added!']);
+                  $response[] = array('status'=>1);
                   } else {
-                    echo json_encode(['status' => 'failed','msg'=>'sorry!']);
+                    $response[] = array('status'=>0);
             }}}
             else
             {
-                echo "wrong otp";
+              $response[] = array('status'=>0);
             }
+            echo json_encode($response);

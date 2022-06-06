@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 22, 2022 at 07:56 AM
+-- Generation Time: Jun 05, 2022 at 02:39 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -32,16 +32,21 @@ CREATE TABLE `file` (
   `name` varchar(10000) NOT NULL,
   `size` varchar(10000) NOT NULL,
   `downloads` int(255) NOT NULL,
-  `employeeid` int(255) NOT NULL
+  `employeeid` int(255) NOT NULL,
+  `ename` varchar(500) NOT NULL,
+  `mobile` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `file`
 --
 
-INSERT INTO `file` (`id`, `name`, `size`, `downloads`, `employeeid`) VALUES
-(1, 'Proposal Form SPL-2.pdf', '65034', 0, 0),
-(2, 'Proposal Form SPL-2.pdf', '65034', 0, 0);
+INSERT INTO `file` (`id`, `name`, `size`, `downloads`, `employeeid`, `ename`, `mobile`) VALUES
+(1, 'Proposal Form SPL-2.pdf', '65034', 8, 31245, 'Fahad Hossain', '8801818130998'),
+(2, 'Proposal Form SPL-2.pdf', '65034', 1, 31893, 'Jafar Mahin', '8801717743519'),
+(3, '1120_SE305feedbacksheet.pdf', '646323', 0, 32315, 'Jitesh Sureka', '8801780935761'),
+(4, 'Group_6Assignment_4.pdf', '583253', 0, 33256, 'Khairul Alam', '8801766090554'),
+(5, 'Group_6Assignment_4.pdf', '583253', 0, 33456, 'Saad Noor', '8801887431603');
 
 --
 -- Indexes for dumped tables
@@ -61,7 +66,7 @@ ALTER TABLE `file`
 -- AUTO_INCREMENT for table `file`
 --
 ALTER TABLE `file`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

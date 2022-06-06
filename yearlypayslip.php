@@ -1,29 +1,4 @@
-<html>
-<head>
-<title>...</title>
-<style type="text/css">
-/* table {
-margin: 8px;
-} */
 
-th {
-font-family: Arial, Helvetica, sans-serif;
-font-size: .7em;
-background: #666;
-color: #000;
-padding: 2px 6px;
-border-collapse: separate;
-border: 1px solid #000;
-}
-
-td {
-font-family: Arial, Helvetica, sans-serif;
-font-size: .7em;
-border: 1px solid #DDD;
-}
-</style>
-</head>
-<body>
 <?php
 
 
@@ -38,20 +13,22 @@ $data=json_decode(file_get_contents("php://input"));
 include('db.php');
 
   $transactionid= rand(200000,299999);
-  $sql = "SELECT COUNT(*) as 'att' FROM attendance where employeeid='$_GET[employeeid]' AND status='1' AND YEAR(date)='$_GET[year]' ";
+  $sql = "SELECT COUNT(*) as 'att' FROM attendance where employeeid='$_GET[id]' AND status='1' AND YEAR(date)='$_GET[year]' ";
   $result=$conn->query($sql);
   $html="";
-  $html.="<h1 align='center'> Yearly Payslip  </h1>";
-  $sql1="SELECT id FROM users where id='$_GET[employeeid]' ";
+  $html.="<h1 align='center'> Sultan Tea Garden </h1>";
+  $html.="<h2 align='center'> Yearly Payslip  </h2>";
+  $sql1="SELECT id FROM users where id='$_GET[id]' ";
   $result1=$conn->query($sql1);
   $row1=mysqli_fetch_assoc($result1);
   $html.="<div ><p align='left'> Employee ID:".$row1['id'];
   
-  $sql2="SELECT name FROM users WHERE id='$_GET[employeeid]' ";
+  $sql2="SELECT name FROM users WHERE id='$_GET[id]' ";
   $result2=$conn->query($sql2);
   $row2=mysqli_fetch_assoc($result2);
- 
-   $html.="&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Year:".$_GET[year];
+//  $y=$_GET[year];
+//  echo $y;
+  // $html.="&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Year:".'$_GET[year]';
    
 
   $html.="</p>";
@@ -63,26 +40,26 @@ include('db.php');
    
  $html.="<p> Attendance :" .$row['att'];
  
- $sql3 = "SELECT COUNT(*) as 'abs' FROM attendance where employeeid='$_GET[employeeid]' AND status='0' AND YEAR(date)='$_GET[year]' ";
+ $sql3 = "SELECT COUNT(*) as 'abs' FROM attendance where employeeid='$_GET[id]' AND status='0' AND YEAR(date)='$_GET[year]' ";
  $result3=$conn->query($sql3);
  $row3 = mysqli_fetch_assoc($result3); 
  $html.="&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Absence :".$row3['abs'];
-$sql4="SELECT basic FROM salary where employeeid='$_GET[employeeid]'";
+$sql4="SELECT basic FROM salary where employeeid='$_GET[id]'";
 $result4=$conn->query($sql4);
 $row4 = mysqli_fetch_assoc($result4);
 
   $bonus=$row4['basic']*2;
 
 $absence=$row3['abs']*600;
-$sql5="SELECT tax FROM salary where employeeid='$_GET[employeeid]'";
+$sql5="SELECT tax FROM salary where employeeid='$_GET[id]'";
 $result5=$conn->query($sql5);
 $row5 = mysqli_fetch_assoc($result5); 
 
-$sql6="SELECT rent FROM salary where employeeid='$_GET[employeeid]'";
+$sql6="SELECT rent FROM salary where employeeid='$_GET[id]'";
 $result6=$conn->query($sql6);
 $row6 = mysqli_fetch_assoc($result6); 
 
-$sql7="SELECT medical FROM salary where employeeid='$_GET[employeeid]'";
+$sql7="SELECT medical FROM salary where employeeid='$_GET[id]'";
 $result7=$conn->query($sql7);
 $row7 = mysqli_fetch_assoc($result7); 
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 05, 2022 at 02:40 PM
+-- Generation Time: Jun 05, 2022 at 02:39 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -24,40 +24,43 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `warehouse`
+-- Table structure for table `attendance`
 --
 
-CREATE TABLE `warehouse` (
-  `id` int(11) NOT NULL,
+CREATE TABLE `attendance` (
+  `id` int(40) NOT NULL,
   `date` date NOT NULL,
-  `item` varchar(40) NOT NULL,
-  `amount` varchar(40) NOT NULL,
-  `status` varchar(11) NOT NULL
+  `status` varchar(40) NOT NULL,
+  `employeeid` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `warehouse`
+-- Dumping data for table `attendance`
 --
 
-INSERT INTO `warehouse` (`id`, `date`, `item`, `amount`, `status`) VALUES
-(2, '2022-05-02', 'tea', '20', '1'),
-(3, '2022-05-03', 'tea', '20', '1'),
-(4, '2022-05-04', 'tea', '20', '1'),
-(5, '2022-05-04', 'tea', '10', '0'),
-(6, '2022-05-06', 'tea', '10', '0'),
-(7, '2022-05-02', 'fertilizer', '30', '1'),
-(8, '2022-05-06', 'fertilizer', '20', '0'),
-(9, '2022-05-06', 'pesticide', '20', '1'),
-(10, '2022-05-07', 'pesticide', '10', '0');
+INSERT INTO `attendance` (`id`, `date`, `status`, `employeeid`) VALUES
+(1, '2022-05-01', '1', '22345'),
+(2, '2022-05-02', '1', '22345'),
+(3, '2022-05-03', '0', '22345'),
+(4, '2022-05-03', '1', '11345'),
+(8, '2022-05-04', '1', '22345'),
+(9, '2022-05-04', '1', '11345'),
+(10, '2022-05-05', '1', '11345'),
+(11, '2022-05-06', '0', '11345'),
+(12, '2022-05-07', '1', '11345'),
+(13, '2022-05-01', '1', '12345'),
+(14, '2022-05-02', '1', '12345'),
+(15, '2022-05-03', '1', '12345'),
+(16, '2022-05-04', '1', '12345');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `warehouse`
+-- Indexes for table `attendance`
 --
-ALTER TABLE `warehouse`
+ALTER TABLE `attendance`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -65,10 +68,10 @@ ALTER TABLE `warehouse`
 --
 
 --
--- AUTO_INCREMENT for table `warehouse`
+-- AUTO_INCREMENT for table `attendance`
 --
-ALTER TABLE `warehouse`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+ALTER TABLE `attendance`
+  MODIFY `id` int(40) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

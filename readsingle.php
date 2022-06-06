@@ -19,6 +19,7 @@ $result2=$conn->query($sql1);
         $result1=$conn->query($sql);
     
         if ($result1 ->num_rows > 0) {
+          $response[] = array('status'=>1);
             // output data of each row
             while($row = $result1 -> fetch_assoc()) {
               $number= $row['mobile'];
@@ -43,9 +44,10 @@ $result2=$conn->query($sql1);
             $smsresult = curl_exec($ch);
             $p = explode("|",$smsresult);
             $sendstatus = $p[0];
-            echo $sendstatus;
+            // echo $sendstatus;
 
             }
           } else {
-            echo '0000';
+            $response[] = array('status'=>0);
           }
+          echo json_encode($response);
